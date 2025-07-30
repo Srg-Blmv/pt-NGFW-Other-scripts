@@ -22,8 +22,9 @@ def auth():
     response_auth = requests.post(url, json=payload, headers=headers, verify=False)
     if response_auth.status_code == 200:
         print("auth ok")
+        payload = {}
         url =  f"https://{mgmt_ip}/api/v2/GetDeviceGroupsTree"
-        r = requests.post(url, headers=headers, verify=False, cookies=response_auth.cookies)
+        r = requests.post(url, headers=headers,json=payload, verify=False, cookies=response_auth.cookies)
         cookies = response_auth.cookies
         # ПОЛУЧАЕМ ID глобальной группы
         global_gr_id = get_id_groupe(r.json()['groups'][0])
@@ -197,12 +198,12 @@ def main(path_txt_file, name_groupe):
    add_in_groupe(name_groupe, all_id)
 
 
-mgmt_ip = "192.168.212.10"
+mgmt_ip = "192.168.212.101"
 mgmt_login =  "admin"
 mgmt_pass = "xxXX1234$"
 groupe_name= "Global"
 
-filename = 'H:/scripts/pt-Other-scripts/block.txt'
+filename = 'pt-Other-scripts/add_ip_from_file_txt/block.txt'
 name_object_groupe = "black_list_ip"
 
 main(filename, name_object_groupe)
