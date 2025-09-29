@@ -18,3 +18,32 @@
 ```
 
 ---
+
+`add_ip_rules_trex_emix` - %username% Проверяли логирование на большом количестве правил, задача что бы трафик выходил не по одному правилу. В конце any any.
+```
+правила МСЭ:
+Any to 48.0.0.1 port 443 tcp allow
+Any to 48.0.0.2 port 2049 tcp allow
+Any to 48.0.0.3 port 80 tcp allow 
+Any to 48.0.0.4 port 139 tcp allow
+Any to 48.0.0.5 port 53 udp allow
+Any to 48.0.0.6 port 25 tcp allow
+Any to 48.0.0.7 port 110 tcp allow
+Any to 48.0.0.8 port 143 tcp allow
+Any to 48.0.0.9 port 5060 udp allow
+Any to 48.0.0.10 port 3389 udp allow
+Any to 48.0.0.11 port 514 udp allow
+Any to 48.0.0.12 port 22 allow
+
+далее циклически повторяются порты с начала.
+Any to 48.0.0.13 port 443 tcp allow
+Any to 48.0.0.14 port 2049 tcp allow
+Any to 48.0.0.15 port 80 tcp allow
+….
+и так по всем адресам:
+48.0.0.1-48.0.9.196
+49.0.0.1-49.0.9.196
+50.0.0.1-50.0.9.196
+51.0.0.1-51.0.9.196
+```
+---
