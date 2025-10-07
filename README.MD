@@ -47,3 +47,20 @@ Any to 48.0.0.15 port 80 tcp allow
 51.0.0.1-51.0.9.196
 ```
 ---
+
+`add_ip_rules_trex_emix` - Cменить типо лоширования во всех правилах. По умолчанию проверяте если не on_hit то ставит его.
+```
+107  if 'SECURITY_RULE_LOG_MODE_AT_RULE_HIT' !=  item['logMode']:  # ЕСЛИ НЕ HIT 
+
+...
+
+121 "logMode": "SECURITY_RULE_LOG_MODE_AT_RULE_HIT",   # СЮДА ПИШИ НА ЧТО МЕНЯТЬ!!
+
+---
+SECURITY_RULE_LOG_MODE_NO_LOG
+SECURITY_RULE_LOG_MODE_AT_SESSION_START
+SECURITY_RULE_LOG_MODE_AT_SESSION_END
+SECURITY_RULE_LOG_MODE_AT_RULE_HIT 
+SECURITY_RULE_LOG_MODE_AT_SESSION_START_AND_END
+
+```
