@@ -48,7 +48,7 @@ Any to 48.0.0.15 port 80 tcp allow
 ```
 ---
 
-`add_ip_rules_trex_emix` - Cменить тип логирования во всех правилах. По умолчанию проверяте если не on_hit то меянем на on_hit.
+`add_ip_rules_trex_emix` - Cменить тип логирования во всех правилах. По умолчанию проверяет если тип логирования не on_hit то установим  on_hit.
 ```
 107  if 'SECURITY_RULE_LOG_MODE_AT_RULE_HIT' !=  item['logMode']:  # ЕСЛИ НЕ HIT 
 
